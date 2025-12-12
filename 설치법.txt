@@ -6,3 +6,6 @@ nest new 프로젝트이름
 
 엔티티 설계
 - nest g resource 폴더(엔티티)이름
+
+저장
+- rm -rf .git   # 또는 탐색기로 .git 폴더 삭제
