@@ -1,0 +1,7 @@
+1. https://www.notion.so/profile/integrations 들어가기
+2. 새 API 통합 클릭하기
+3. npm install @nestjs/config 명령 입력
+4. app.module.ts 들어가서 imports: [] 안에 ConfigModule.forRoot({ isGlobal: true }) 코드 입력
+5. 노션 해당 api 통합에 들어가서 "프라이빗 API 통합 시크릿" 복사
+6. 해당 프로젝트에 .env 생성후 TOKEN = 프라이빗 API 통합 시크릿 넣기
+7. .env에 노션 페이지(https://www.notion.so/2cae86ad68ec8006bdcbda481c593e9c) 이렇게 생겼으면 PAGE = 2cae86ad68ec8006bdcbda481c593e9c 이런식으로 넣기
