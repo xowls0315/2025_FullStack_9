@@ -1,98 +1,44 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🦄 MZ를 위한 노션 자동화 프로젝트
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+안녕하세요!  
+이 프로젝트는 **Notion의 데이터베이스를 자동으로 생성**하고 관리할 수 있는 MZ취향 저격 TypeScript 백엔드 라이브러리입니다.  
+토큰(`NOTION_TOKEN`)과 페이지ID(`NOTION_PAGE_ID`)만 세팅하면, 나만의 스프레드시트/플래너/메모장을 순식간에 만들어줍니다.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🎯 주요 특징
 
-## Description
+- **초 간단 설정:** 토큰과 페이지 ID만 넣으면 끝!
+- **자동화된 DB 생성:** DTO에 맞춰 Notion 데이터베이스를 자동 생성
+- **에러 핸들링:** 실패시 친절한 메시지와 예외 처리로 디버깅도 쉽다구!
+- **MZ 스타일:** 코드도, 사용법도 쉽고 깔끔하게
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ 사용법
 
-## Project setup
+1. `.env` 파일에 아래 환경변수를 세팅하세요.
+   ```
+   NOTION_TOKEN=내_노션_인터그레이션_토큰
+   NOTION_PAGE_ID=데이터베이스를_생성할_페이지_ID
+   ```
+2. 필요한 DTO와 설정으로 함수 호출!
 
-```bash
-$ npm install
+## 💡 예시
+
+```ts
+import { callNotionApi } from './src/notion/client';
+import { CreateBasicDBDTO } from './src/dto/create-basic-db-dto';
+
+const dto: CreateBasicDBDTO = {
+  // 여기에 나만의 DB 구조 기입
+};
+
+callNotionApi(process.env.NOTION_TOKEN, dto, process.env.NOTION_PAGE_ID)
+  .then((db) => console.log('나만의 노션 DB 생성 완료!', db))
+  .catch((err) => console.error('실패ㅠㅠ:', err));
 ```
 
-## Compile and run the project
+## 🙌 이런 분께 추천!
 
-```bash
-# development
-$ npm run start
+- Notion에 뭔가 자동으로 많이 만들고 싶은 MZ 세대
+- 코드 어렵게 말고, 직관적으로 쓰고 싶은 분
+- 예쁘고, 안정적인 백엔드 라이브러리가 필요한 분
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+지금 바로 경험해보세요! 🚀
