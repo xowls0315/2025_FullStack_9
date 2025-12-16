@@ -1,0 +1,3 @@
+oozy 프로젝트 설계사항
+- coffee [id, name, price, shots]
+- memeber [id, name, position]

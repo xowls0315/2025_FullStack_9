@@ -1,0 +1,4 @@
+zoo 프로젝트 설계사항
+
+- animal [name, systematics, count]
+- zookeeper [name, age, position]
