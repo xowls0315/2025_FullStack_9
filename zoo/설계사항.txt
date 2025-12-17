@@ -2,3 +2,15 @@ zoo 프로젝트 설계사항
 
 - animal [name, systematics, count]
 - zookeeper [name, age, position]
+
+DB-First
+- foodtruck, area 엔티티
+- area와 foodtruck은 1:N 관계 => area가 1, foodtruck이 N
+- 디비먼저 테이블만들고 
+- npm i typeorm-model-generator
+- npx typeorm-model-generator
+- => 엔티티 생김 그래서 엔티티 갈아끼면됨
+
+
+nest g interceptor resposne-format
+nest g interceptor error-format

@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { AnimalModule } from './animal/animal.module';
 import { ZookeeperModule } from './zookeeper/zookeeper.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AreaModule } from './area/area.module';
+import { FoodtruckModule } from './foodtruck/foodtruck.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     AnimalModule,
     ZookeeperModule,
+    AreaModule,
+    FoodtruckModule,
   ],
   controllers: [AppController],
   providers: [AppService],

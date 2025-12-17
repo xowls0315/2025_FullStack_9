@@ -1,0 +1,13 @@
+arombake 프로젝트 설계사항
+=> DB-First 방식으로 진행
+==> staff, guest, tier 엔티티를 sql문으로 먼저 테이블로 만들어야함
+==> npm i typeorm-model-generator/npx typeorm-model-generator 커맨드 사용하기
+
+=> interceptor 나타내기 (성공/실패)
+==> nest g interceptor resposne-format/nest g interceptor responsne-format 커맨드 사용하기
+
+
+- staff [name, age, 입사년도]
+- guest [name, 지출]
+- tier [Bronze, Sliver, Gold]
+=> tier와 guest는 1:N 관계 (tier가 1, guest가 N) 

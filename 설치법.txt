@@ -9,3 +9,7 @@ nest new 프로젝트이름
 
 저장
 - rm -rf .git   # 또는 탐색기로 .git 폴더 삭제
+
+format 형식 커맨드
+- nest g interceptor responsne-format
+- nest g interceptor error-format
