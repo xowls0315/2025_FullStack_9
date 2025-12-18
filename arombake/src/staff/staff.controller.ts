@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { StaffService } from './staff.service';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { UpdateStaffDto } from './dto/update-staff.dto';
 import { ApiBody, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
+import { RabbitGuard } from 'src/common/guard/rabbit.guard';
 
 @ApiTags('Staff')
 @Controller('staff')
@@ -26,6 +28,7 @@ export class StaffController {
 
   @ApiOperation({ summary: '직원 전체 조회' })
   @Get()
+  @UseGuards(RabbitGuard)
   findAll() {
     return this.staffService.findAll();
   }

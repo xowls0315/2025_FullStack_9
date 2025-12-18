@@ -1,0 +1,19 @@
+it-pc 프로젝트 설계사항
+[가드] => nest g guard
+[인터셉터/필터] => nest g interceptor resposne-format/nest g interceptor responsne-format
+[파이프] => ValidationPipe
+[리소스(엔티티들은 아래와 같음)]
+[DB-First 방식으로 진행] => 엔티티들을 먼저 sql문으로 만들어야함 (npm i typeorm-model-generator/npx typeorm-model-generator)
+
+- computers[id, spec(좋음, 보통, 나쁨), price, status(양호, 고장, 수리중)]
+- guests[id, name, password, age]
+- usage[id, cfk, gfk]
+- staffs[id, name, hireYear]
+- users[id, email, password]
+
+=> 하나의 손님은 여러 개의 컴퓨터를 이용할 수 있고, 하나의 컴퓨터는 여러 명의 손님에 의해 이용된다. (computer와 guest는 N:N 관계)
+
+
+- npm install @nestjs/jwt
+- npm install bcrypt
+- npm install -D @types/bcrypt
