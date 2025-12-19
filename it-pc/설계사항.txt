@@ -1,6 +1,6 @@
 it-pc 프로젝트 설계사항
 [가드] => nest g guard
-[인터셉터/필터] => nest g interceptor resposne-format/nest g interceptor responsne-format
+[인터셉터/필터] => nest g interceptor resposne-format/nest g interceptor error-format
 [파이프] => ValidationPipe
 [리소스(엔티티들은 아래와 같음)]
 [DB-First 방식으로 진행] => 엔티티들을 먼저 sql문으로 만들어야함 (npm i typeorm-model-generator/npx typeorm-model-generator)
