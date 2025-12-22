@@ -1,0 +1,10 @@
+1. 로그인 하기
+- access token
+- refresh token => DB에 저장됨
+
+2. 재로그인 하기
+- refresh token 테이블에서 외래키 userId가 있는지 확인
+- 있으면ㄱ /없으면 재갱신 + 새로운 리프레쉬 토큰 + 10분
+
+3. 로그아웃 하기
+- refresh token을 DB에서 삭제시켜야함

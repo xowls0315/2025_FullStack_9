@@ -1,0 +1,7 @@
+logintest 프로젝트 table 사항
+
+- 하나의 회원은 여러 토큰을 가진다.
+- 하나의 토큰은 하나의 회원에 의해 가져진다.
+(회원과 토큰은 1:N 관계, 회원이 1이고 토큰이 N인 관계)
+1. 회원 [id(pk), hashed password, nickname]
+2. 토큰 [id, hashed token, isRevoked, expireAt, fk]
